@@ -9,11 +9,15 @@ class TasksController < ApplicationController
     end
 
     def create
-        Task.create(user_params)
+        Task.create(task_params)
+    end
+
+    def show
+        @task = Task.find(params[:id])
     end
 
     private
-    def user_params
+    def task_params
         params.require(:task).permit(:title, :contents)
     end
 end
