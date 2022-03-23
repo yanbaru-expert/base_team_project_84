@@ -16,9 +16,18 @@ class TasksController < ApplicationController
         @task = Task.find(params[:id])
     end
 
-    def destoroy
+    def destroy
         task = Task.find(params[:id])
-        task.destoroy
+        task.destroy
+    end
+
+    def edit
+        @task = Task.find(params[:id])
+    end
+
+    def update
+        task = Task.find(params[:id])
+        task.update(task_params)
     end
 
     private
